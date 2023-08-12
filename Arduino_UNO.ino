@@ -13,10 +13,19 @@ void loop()
 	state = digitalRead(sensor);
 	
 	if (state == HIGH){
-		tone(buzzer, 400);
+		alarm();
 	}
 	else{
 		noTone(buzzer);
 	}
-	delay(200);
+}
+void alarm()
+{
+  for(int e=0;e<5;e++)
+  {
+    digitalWrite(buzzer, HIGH);
+    delay(50);
+    digitalWrite(buzzer, LOW);
+    delay(50);
+  }
 }
